@@ -1,4 +1,4 @@
-const getBooksByAuthor = function getBooksByAuthor(author, booksArray) {
+const getBooksByAuthor =  (author, booksArray) => {
     return booksArray.filter((item) => {
         return item.author === author;
     });

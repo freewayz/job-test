@@ -3,34 +3,40 @@ const getBooksByAuthor = require('./fetch-books-by-author');
 
 const  Ratings =  function(books) {
     const booksArray = orderBookByRating(books);
+
+    function calculateAverage(anArray) {
+        let count = anArray.length;
+        if (count == 1) {
+            return anArray[0];
+        }
+        let sum = anArray.reduce((prev, curr) => curr + prev);
+        return sum /= count;
+    }
+
+
     const publicAPI = {
         getTopBooks: function(n) {
             return booksArray.slice(0, n - 1);
         },
         getTopAuthors: function(n) {
-            const result = new Map()
+            // use the map to store author/ratings 
+            const result = new Map() 
             for(let i = 0; i < n; i++) {
                 let aBook = booksArray[i];
+                // starting with a naive implementation
                 if (result.has(aBook.author)) {
-                    // this is already in the map
-                    // update the average
                     let prevObj = result.get(aBook.author);
-                    let currentRating = aBook.ratings;
-                    // update the average
-                    prevObj.avg = ( currentRating + prevObj.rating ) /  (prevObj.count + 1)
-                    // update the count
-                    prevObj.count = prevObj.count + 1;
+                    prevObj.push(aBook.ratings)
+                    
                 } else {
-                    // this is the first time we are encountering this
-                    let ratingValue = {
-                        count: 1,
-                        avg: aBook.ratings
-                    };
-
-                    result.set(aBook.author, ratingValue);
+                    result.set(aBook.author, [aBook.ratings]);
                 }
             }
-
+            // iterate over each map value and calculate their average
+            result.forEach((value, key, map) => {
+                // update each entry value with the calculated rating average
+                map.set(key, calculateAverage(value))
+            });
             return result;
         }
     }

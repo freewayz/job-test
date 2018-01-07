@@ -23,5 +23,3 @@ getBooksAsync(books)
     .then(sortBooksAlphabetically)
     .then(filterBooksWithTitleStartingWithA)
     .then(print)
-
-// why
