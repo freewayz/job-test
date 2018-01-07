@@ -1,4 +1,4 @@
 const  books = require('./books');
-const Ratings = require('./ratings');
+const Ratings = require('./ratings')(books);
 
-console.log(Ratings)
+console.log(Ratings.getTopAuthors(4))
