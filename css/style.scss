@@ -1,5 +1,10 @@
+
+$green:  #42d68c;
+
+
 body {
-    background-color: #f3f4f6;
+  background-color: #f3f4f6; 
+  font-family: 'Nunito';
 }
 
 
@@ -7,34 +12,54 @@ body {
     display: flex;
     flex-flow: row;
     justify-content: center;
+    align-items: center;
     align-content: space-around;
 }
+.bg-green {
+    background-color: $green;
+}
+
 
 .status {
     display: flex;
+    align-self: flex-start;
     flex-flow: column;
     align-items: center;
     justify-content: space-around;    
-    max-width: 17%;
-    padding: 5px 20px;
+    max-width: 20%;
+    padding: 12px 20px;
     margin: 5px 20px;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 6px;
     background-color: #42d68c;
     min-height: 30%;
+    box-sizing: border-box;
     box-shadow: 1px 1px 0px 0px rgba(94,93,102,0.08), 2px 2px 3px 0px rgba(94,93,102,0.1);
+    
+    & .heading {
+        display: flex;
+        flex-flow: row;
 
-    & .title {
-        font-size:  1.2em;  
+        & .icon {
+           margin-left: 10px;
+        }
+
+        & .title {
+            font-size:  1.2em;
+            margin-left: 10px;
+         }
     }
+    
     
     & .btn {
         border: 1px solid #ced4da;
-        border-radius: .25rem;
+        border-radius: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 10px 15px;
-        font-size: 18px;
+        padding: 12px 15px;
+        font-size: 16.5px;
+        display: inline-block;
+        box-shadow: 3px 3px 5px #ccc;
     }
     
     & .info {
