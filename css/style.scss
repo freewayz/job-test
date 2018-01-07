@@ -1,5 +1,7 @@
 
 $green:  #42d68c;
+$red: #dd2265;
+$bitter-sweet: #fd7567;
 
 
 body {
@@ -15,10 +17,25 @@ body {
     align-items: center;
     align-content: space-around;
 }
-.bg-green {
+
+.bg-success {
     background-color: $green;
 }
-
+.bg-danger {
+    background-color: $red;
+}
+.bg-warning {
+    background-color: $bitter-sweet;
+}
+.text-success {
+    color: $green;
+}
+.text-danger {
+    color: $red;
+}
+.text-warning {
+    color: $bitter-sweet;
+}
 
 .status {
     display: flex;
@@ -26,27 +43,28 @@ body {
     flex-flow: column;
     align-items: center;
     justify-content: space-around;    
-    max-width: 20%;
+    max-width: 21%;
+    min-height: 33%;    
     padding: 12px 20px;
     margin: 5px 20px;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 6px;
-    background-color: #42d68c;
-    min-height: 30%;
     box-sizing: border-box;
     box-shadow: 1px 1px 0px 0px rgba(94,93,102,0.08), 2px 2px 3px 0px rgba(94,93,102,0.1);
     
     & .heading {
-        display: flex;
+        display: inline-flex;
         flex-flow: row;
-
+        margin-top: 10px;
+        color: white;
         & .icon {
-           margin-left: 10px;
+           margin-left: 20px;
+           font-size: 1.5em;
         }
 
         & .title {
-            font-size:  1.2em;
-            margin-left: 10px;
+            font-size:  1.5em;
+            font-weight: bold;
          }
     }
     
@@ -56,7 +74,7 @@ body {
         border-radius: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 12px 15px;
+        padding: 12px 19px;
         font-size: 16.5px;
         display: inline-block;
         box-shadow: 3px 3px 5px #ccc;
@@ -64,5 +82,8 @@ body {
     
     & .info {
         text-align: center;
+        line-height: 20px;
+        margin-bottom: 10px;
+        color: white;
     }
 }
